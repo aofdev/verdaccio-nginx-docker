@@ -50,7 +50,7 @@ There are some tools you can create a new user for htpasswd
 [Generator htpasswd](http://www.htaccesstools.com/htpasswd-generator/)
 open verdaccio/htpasswd file, add a new line and paste that what the tool is created
 
-#### Note* 404 no such package available error
+#### Note* If your 404 no such package available error
 
 If your using docker then the following worked for me:
 
