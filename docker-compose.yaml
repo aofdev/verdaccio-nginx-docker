@@ -12,7 +12,7 @@ services:
     container_name: nginx
     image: nginx:stable-alpine
     volumes:
-      - ./nginx/verdaccio.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     restart: always
     depends_on:
       - verdaccio
