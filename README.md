@@ -1,4 +1,4 @@
-# verdaccio docker nginx
+# verdaccio nginx dokcer
 
 ## Setup with docker-compose
 
