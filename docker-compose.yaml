@@ -1,0 +1,24 @@
+version: "3.5"
+services:
+  verdaccio:
+    image: verdaccio/verdaccio:4
+    container_name: verdaccio
+    ports:
+      - "4873:4873"
+    volumes:
+      - ./verdaccio:/verdaccio/conf
+
+  nginx:
+    container_name: nginx
+    image: nginx:stable-alpine
+    volumes:
+      - ./nginx/verdaccio.conf:/etc/nginx/conf.d/default.conf
+    restart: always
+    depends_on:
+      - verdaccio
+    ports:
+      - "80:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"

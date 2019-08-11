@@ -1,0 +1,27 @@
+storage: ./storage
+publish:
+  allow_offline: true
+auth:
+  htpasswd:
+    file: ./htpasswd
+    max_users: -1
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+  myPrivate:
+    url: http://localhost:4873
+packages:
+  "@*/*":
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+  "@private/*":
+    access: $all
+    publish: $authenticated
+    proxy: myPrivate
+  "**":
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+logs:
+  - { type: stdout, format: pretty, level: http }
